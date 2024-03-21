@@ -71,19 +71,13 @@ curl -4 ip.p3terx.com
 wget -N https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp-yxip-mac.sh && bash warp-yxip-mac.sh
 ```
 
-### For Linux （包括安卓 Termux）
+### For Linux （包括安卓 Termux 和苹果 iSH）
 
 ```shell
 wget -N https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp-yxip.sh && bash warp-yxip.sh
 ```
 
 安卓 Termux 如无 wget 请使用以下命令安装：`pkg update && pkg install wget`
-
-### For iSH for iOS
-
-```shell
-wget -N https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp-yxip-ios.sh && bash warp-yxip-ios.sh
-```
 
 苹果 iSH 初始命令：`apk add -f openssh bash wget`，如遇更新包卡着不动输入以下命令：`sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories`
 
