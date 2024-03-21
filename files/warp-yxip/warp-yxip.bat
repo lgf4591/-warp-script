@@ -1,39 +1,42 @@
-chcp 936
-cls
-@echo off & setlocal enabledelayedexpansion
-goto start
+@echo off
+chcp 936 >nul
+setlocal enabledelayedexpansion
 
 :start
-if not exist "warp.exe" echo È±ÉÙ warp.exe ³ÌÐò & pause & exit
-if not exist "ips-v4.txt" echo È±ÉÙ IPV4 Êý¾Ý ips-v4.txt & pause & exit
-if not exist "ips-v6.txt" echo È±ÉÙ IPV6 Êý¾Ý ips-v6.txt & pause & exit
-goto main
+if not exist warp.exe Powershell wget -Uri "https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp.exe?inline=false" -OutFile "warp.exe"
+if not exist warp.exe echo ç¼ºå°‘ warp.exe ç¨‹åº & pause & exit
+for %%i in (v4 v6) do (
+    if not exist ips-%%i.txt Powershell wget -Uri "https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/ips-%%i.txt" -OutFile "ips-%%i.txt"
+    if not exist ips-%%i.txt echo ç¼ºå°‘ IP%%i æ•°æ® ips-%%i.txt & pause & exit
+)
 
 :main
-title WARP Endpoint IP Ò»¼üÓÅÑ¡½Å±¾
-set /a menu=1
-echo #############################################################
-echo #                WARP Endpoint IP Ò»¼üÓÅÑ¡½Å±¾              #
-echo # ×÷Õß: MisakaNo ¤Î Ð¡ÆÆÕ¾                                  #
-echo # ²©¿Í: https://blog.misaka.rest                            #
-echo # GitHub ÏîÄ¿: https://github.com/Misaka-blog               #
-echo # GitLab ÏîÄ¿: https://gitlab.com/Misaka-blog               #
-echo # Telegram ÆµµÀ: https://t.me/misaka_noc                    #
-echo # Telegram Èº×é: https://t.me/misaka_noc_chat               #
-echo # YouTube ÆµµÀ: https://www.youtube.com/@misaka-blog        #
-echo #############################################################
-echo.
-echo 1. WARP IPv4 Endpoint IP ÓÅÑ¡
-echo 2. WARP IPv6 Endpoint IP ÓÅÑ¡
-echo -------------
-echo 0. ÍË³ö
-echo.
-set /p menu=ÇëÊäÈëÑ¡Ïî (Ä¬ÈÏ%menu%):
-if %menu%==0 exit
-if %menu%==1 title WARP IPv4 Endpoint IP ÓÅÑ¡ & set filename=ips-v4.txt & goto getv4
-if %menu%==2 title WARP IPv6 Endpoint IP ÓÅÑ¡ & set filename=ips-v6.txt & goto getv6
 cls
-goto main
+title WARP Endpoint IP ä¸€é”®ä¼˜é€‰è„šæœ¬
+echo #############################################################
+echo #                WARP Endpoint IP ä¸€é”®ä¼˜é€‰è„šæœ¬              #
+echo # ä½œè€…: MisakaNo ã® å°ç ´ç«™                                  #
+echo # åšå®¢: https://blog.misaka.rest                            #
+echo # GitHub é¡¹ç›®: https://github.com/Misaka-blog               #
+echo # GitLab é¡¹ç›®: https://gitlab.com/Misaka-blog               #
+echo # Telegram é¢‘é“: https://t.me/misaka_noc                    #
+echo # Telegram ç¾¤ç»„: https://t.me/misaka_noc_chat               #
+echo # YouTube é¢‘é“: https://www.youtube.com/@misaka-blog        #
+echo #############################################################
+echo.
+echo 1. WARP IPv4 Endpoint IP ä¼˜é€‰
+echo 2. WARP IPv6 Endpoint IP ä¼˜é€‰
+echo -------------
+echo 0. é€€å‡º
+echo.
+choice /c 120 /M "è¯·è¾“å…¥é€‰é¡¹:"
+if "%errorlevel%"=="3" exit
+if "%errorlevel%"=="2" set ver=v6
+if "%errorlevel%"=="1" set ver=v4
+title WARP IP%ver% Endpoint IP ä¼˜é€‰
+set filename=ips-%ver%.txt
+goto get%ver%
+
 
 :getv4
 for /f "delims=" %%i in (%filename%) do (
@@ -111,6 +114,6 @@ set %%i=
 
 warp
 del ip.txt > nul 2>&1
-echo Çë°´ÈÎÒâ¼ü¹Ø±Õ´°¿Ú
+echo è¯·æŒ‰ä»»æ„é”®å…³é—­çª—å£
 pause > nul
 exit
