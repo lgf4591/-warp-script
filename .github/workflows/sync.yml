@@ -20,4 +20,4 @@ jobs:
           target_repo_url:
             git@gitlab.com:Misaka-blog/warp-script.git
           ssh_private_key:
-            ${{ secrets.PRIVATE_KEY }}
+            ${{ secrets.ACTION_DEPLOY_KEY }}
