@@ -2,8 +2,9 @@ name: GitHub Actions Mirror
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '20 20 * * *'
+  push:
+    branches:
+      - main
 
 jobs:
   mirror_to_gitlab:
