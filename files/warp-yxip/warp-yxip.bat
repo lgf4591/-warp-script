@@ -3,37 +3,37 @@ chcp 936 >nul
 setlocal enabledelayedexpansion
 
 :start
-if not exist warp.exe Powershell wget -Uri "https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp.exe?inline=false" -OutFile "warp.exe"
-if not exist warp.exe echo 缺少 warp.exe 程序 & pause & exit
+if not exist warp.exe Powershell wget -Uri "https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp.exe" -OutFile "warp.exe"
+if not exist warp.exe echo ȱ�� warp.exe ���� & pause & exit
 for %%i in (v4 v6) do (
     if not exist ips-%%i.txt Powershell wget -Uri "https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/ips-%%i.txt" -OutFile "ips-%%i.txt"
-    if not exist ips-%%i.txt echo 缺少 IP%%i 数据 ips-%%i.txt & pause & exit
+    if not exist ips-%%i.txt echo ȱ�� IP%%i ���� ips-%%i.txt & pause & exit
 )
 
 :main
 cls
-title WARP Endpoint IP 一键优选脚本
+title WARP Endpoint IP һ����ѡ�ű�
 echo #############################################################
-echo #                WARP Endpoint IP 一键优选脚本              #
-echo # 作者: MisakaNo の 小破站                                  #
-echo # 博客: https://blog.misaka.rest                            #
-echo # GitHub 项目: https://github.com/Misaka-blog               #
-echo # GitLab 项目: https://gitlab.com/Misaka-blog               #
-echo # Telegram 频道: https://t.me/misaka_noc                    #
-echo # Telegram 群组: https://t.me/misaka_noc_chat               #
-echo # YouTube 频道: https://www.youtube.com/@misaka-blog        #
+echo #                WARP Endpoint IP һ����ѡ�ű�              #
+echo # ����: MisakaNo �� С��վ                                  #
+echo # ����: https://blog.misaka.rest                            #
+echo # GitHub ��Ŀ: https://github.com/Misaka-blog               #
+echo # GitLab ��Ŀ: https://gitlab.com/Misaka-blog               #
+echo # Telegram Ƶ��: https://t.me/misaka_noc                    #
+echo # Telegram Ⱥ��: https://t.me/misaka_noc_chat               #
+echo # YouTube Ƶ��: https://www.youtube.com/@misaka-blog        #
 echo #############################################################
 echo.
-echo 1. WARP IPv4 Endpoint IP 优选
-echo 2. WARP IPv6 Endpoint IP 优选
+echo 1. WARP IPv4 Endpoint IP ��ѡ
+echo 2. WARP IPv6 Endpoint IP ��ѡ
 echo -------------
-echo 0. 退出
+echo 0. �˳�
 echo.
-choice /c 120 /M "请输入选项:"
+choice /c 120 /M "������ѡ��:"
 if "%errorlevel%"=="3" exit
 if "%errorlevel%"=="2" set ver=v6
 if "%errorlevel%"=="1" set ver=v4
-title WARP IP%ver% Endpoint IP 优选
+title WARP IP%ver% Endpoint IP ��ѡ
 set filename=ips-%ver%.txt
 goto get%ver%
 
@@ -114,6 +114,6 @@ set %%i=
 
 warp
 del ip.txt > nul 2>&1
-echo 请按任意键关闭窗口
+echo �밴������رմ���
 pause > nul
 exit
