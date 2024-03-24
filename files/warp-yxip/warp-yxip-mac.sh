@@ -1,4 +1,5 @@
 #!/bin/bash
+export LANG=en_US.UTF-8
 
 RED="\033[31m"
 GREEN="\033[32m"
@@ -38,7 +39,6 @@ endpointyx(){
     
     # 启动 WARP Endpoint IP 优选工具
     chmod +x warp
-
     if [[ $1 == 6 ]]; then
         ./warp -ipv6
     else
