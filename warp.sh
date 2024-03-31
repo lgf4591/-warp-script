@@ -230,129 +230,9 @@ check_endpoint() {
 
     # 生成优选 Endpoint IP 文件
     if [[ -n $ipv4 ]]; then
-        n=0
-        iplist=100
-        while true; do
-            temp[$n]=$(echo 162.159.192.$(($RANDOM % 256)))
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-            temp[$n]=$(echo 162.159.193.$(($RANDOM % 256)))
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-            temp[$n]=$(echo 162.159.195.$(($RANDOM % 256)))
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-            temp[$n]=$(echo 162.159.204.$(($RANDOM % 256)))
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-            temp[$n]=$(echo 188.114.96.$(($RANDOM % 256)))
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-            temp[$n]=$(echo 188.114.97.$(($RANDOM % 256)))
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-            temp[$n]=$(echo 188.114.98.$(($RANDOM % 256)))
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-            temp[$n]=$(echo 188.114.99.$(($RANDOM % 256)))
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-        done
-        while true; do
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo 162.159.192.$(($RANDOM % 256)))
-                n=$(($n + 1))
-            fi
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo 162.159.193.$(($RANDOM % 256)))
-                n=$(($n + 1))
-            fi
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo 162.159.195.$(($RANDOM % 256)))
-                n=$(($n + 1))
-            fi
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo 162.159.204.$(($RANDOM % 256)))
-                n=$(($n + 1))
-            fi
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo 188.114.96.$(($RANDOM % 256)))
-                n=$(($n + 1))
-            fi
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo 188.114.97.$(($RANDOM % 256)))
-                n=$(($n + 1))
-            fi
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo 188.114.98.$(($RANDOM % 256)))
-                n=$(($n + 1))
-            fi
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo 188.114.99.$(($RANDOM % 256)))
-                n=$(($n + 1))
-            fi
-        done
+        yxprefix=""
     else
-        n=0
-        iplist=100
-        while true; do
-            temp[$n]=$(echo [2606:4700:d0::$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2)))])
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-            temp[$n]=$(echo [2606:4700:d1::$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2)))])
-            n=$(($n + 1))
-            if [ $n -ge $iplist ]; then
-                break
-            fi
-        done
-        while true; do
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo [2606:4700:d0::$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2)))])
-                n=$(($n + 1))
-            fi
-            if [ $(echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-                break
-            else
-                temp[$n]=$(echo [2606:4700:d1::$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2))):$(printf '%x\n' $(($RANDOM * 2 + $RANDOM % 2)))])
-                n=$(($n + 1))
-            fi
-        done
+        yxprefix="-ipv6"
     fi
 
     # 将生成的 IP 段列表放到 ip.txt 里，待程序优选
@@ -362,7 +242,7 @@ check_endpoint() {
     ulimit -n 102400
 
     # 启动 WARP Endpoint IP 优选工具
-    chmod +x warp && ./warp >/dev/null 2>&1
+    chmod +x warp && ./warp $yxprefix
 
     # 将 result.csv 文件的优选 Endpoint IP 提取出来，放置到 best_endpoint 变量中备用
     best_endpoint=$(cat result.csv | sed -n 2p | awk -F ',' '{print $1}')
@@ -382,7 +262,7 @@ check_endpoint() {
     fi
 
     # 删除 WARP Endpoint IP 优选工具及其附属文件
-    rm -f warp ip.txt result.csv
+    rm -f warp result.csv
 
     green "最佳 Endpoint IP = $best_endpoint 已设置完毕！"
 }
