@@ -228,21 +228,18 @@ check_endpoint() {
     # 根据 VPS 的出站 IP 情况，生成对应的优选 Endpoint IP 段列表
     check_ip
 
-    # 生成优选 Endpoint IP 文件
-    if [[ -n $ipv4 ]]; then
-        yxprefix=""
-    else
-        yxprefix="-ipv6"
-    fi
-
-    # 将生成的 IP 段列表放到 ip.txt 里，待程序优选
-    echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u >ip.txt
-
     # 取消 Linux 自带的线程限制，以便生成优选 Endpoint IP
     ulimit -n 102400
 
+    # 给 Endpoint IP 优选工具赋予权限
+    chmod +x warp
+
     # 启动 WARP Endpoint IP 优选工具
-    chmod +x warp && ./warp $yxprefix
+    if [[ -n $ipv4 ]]; then
+        ./warp
+    else
+        ./warp -ipv6
+    fi
 
     # 将 result.csv 文件的优选 Endpoint IP 提取出来，放置到 best_endpoint 变量中备用
     best_endpoint=$(cat result.csv | sed -n 2p | awk -F ',' '{print $1}')
@@ -2222,6 +2219,7 @@ menu() {
     show_info
     echo ""
     read -rp "请输入选项 [0-14]: " menu_input
+    
     case $menu_input in
         1) select_wgcf ;;
         2) uninstall_wgcf ;;
