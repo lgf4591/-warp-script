@@ -71,6 +71,14 @@ curl -4 ip.p3terx.com
 wget -N https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp-yxip-mac.sh && bash warp-yxip-mac.sh
 ```
 
+如无 wget 请使用以下命令安装：
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew update
+brew install wget
+```
+
 ### For Linux （包括安卓 Termux 和苹果 iSH）
 
 ```shell
