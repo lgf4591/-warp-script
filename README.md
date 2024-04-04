@@ -91,7 +91,7 @@ wget -N https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/wa
 
 ## 鸣谢项目
 
-* Fscarmen：https://github.com/fscarmen/warp
+* Fscarmen：https://gitlab.com/fscarmen/warp
 * CloudFlare WARP：https://one.one.one.one/
 * Wgcf：https://github.com/ViRb3/wgcf
 * WARP-GO：https://gitlab.com/ProjectWARP/warp-go
