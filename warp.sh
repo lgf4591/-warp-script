@@ -87,7 +87,6 @@ wgo6='sed -i "/\[Script\]/a PostUp = ip -4 rule add from $(ip route get 1.1.1.1 
 # 检测 VPS 处理器架构
 archAffix() {
     case "$(uname -m)" in
-        i386 | i686) echo '386' ;;
         x86_64 | amd64) echo 'amd64' ;;
         armv8 | arm64 | aarch64) echo 'arm64' ;;
         s390x) echo 's390x' ;;
@@ -176,8 +175,8 @@ stack_priority() {
     echo ""
     read -rp "请选择选项 [1-3]：" priority
     case $priority in
-        1) echo "precedence ::ffff:0:0/96  100" >>/etc/gai.conf ;;
-        2) echo "label 2002::/16   2" >>/etc/gai.conf ;;
+        1) echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf ;;
+        2) echo "label 2002::/16   2" >> /etc/gai.conf ;;
         *) yellow "将使用 VPS 默认的 IP 优先级" ;;
     esac
 }
@@ -212,6 +211,7 @@ check_mtu() {
             break
         fi
     done
+    
     # 将 MTU 最佳值放置至 MTU 变量中备用
     MTU=$((${MTUy} - 80))
 
