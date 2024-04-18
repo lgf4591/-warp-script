@@ -4,36 +4,36 @@ setlocal enabledelayedexpansion
 
 :start
 if not exist warp.exe Powershell wget -Uri "https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp.exe" -OutFile "warp.exe"
-if not exist warp.exe echo È±ÉÙ warp.exe ³ÌÐò & pause & exit
+if not exist warp.exe echo È±ï¿½ï¿½ warp.exe ï¿½ï¿½ï¿½ï¿½ & pause & exit
 for %%i in (v4 v6) do (
     if not exist ips-%%i.txt Powershell wget -Uri "https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/ips-%%i.txt" -OutFile "ips-%%i.txt"
-    if not exist ips-%%i.txt echo È±ÉÙ IP%%i Êý¾Ý ips-%%i.txt & pause & exit
+    if not exist ips-%%i.txt echo È±ï¿½ï¿½ IP%%i ï¿½ï¿½ï¿½ï¿½ ips-%%i.txt & pause & exit
 )
 
 :main
 cls
-title WARP Endpoint IP Ò»¼üÓÅÑ¡½Å±¾
+title WARP Endpoint IP Ò»ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½Å±ï¿½
 echo #############################################################
-echo #                WARP Endpoint IP Ò»¼üÓÅÑ¡½Å±¾              #
-echo # ×÷Õß: MisakaNo ¤Î Ð¡ÆÆÕ¾                                  #
-echo # ²©¿Í: https://blog.misaka.rest                            #
-echo # GitHub ÏîÄ¿: https://github.com/Misaka-blog               #
-echo # GitLab ÏîÄ¿: https://gitlab.com/Misaka-blog               #
-echo # Telegram ÆµµÀ: https://t.me/misaka_noc                    #
-echo # Telegram Èº×é: https://t.me/misaka_noc_chat               #
-echo # YouTube ÆµµÀ: https://www.youtube.com/@misaka-blog        #
+echo #                WARP Endpoint IP Ò»ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½Å±ï¿½              #
+echo # ï¿½ï¿½ï¿½ï¿½: MisakaNo ï¿½ï¿½ Ð¡ï¿½ï¿½Õ¾                                  #
+echo # ï¿½ï¿½ï¿½ï¿½: httpsmisaka.cyouaka.rest                            #
+echo # GitHub ï¿½ï¿½Ä¿: https://github.com/Misaka-blog               #
+echo # GitLab ï¿½ï¿½Ä¿: https://gitlab.com/Misaka-blog               #
+echo # Telegram Æµï¿½ï¿½: https://t.me/misaka_noc                    #
+echo # Telegram Èºï¿½ï¿½: https://t.me/misaka_noc_chat               #
+echo # YouTube Æµï¿½ï¿½: https://www.youtube.com/@misaka-blog        #
 echo #############################################################
 echo.
-echo 1. WARP IPv4 Endpoint IP ÓÅÑ¡
-echo 2. WARP IPv6 Endpoint IP ÓÅÑ¡
+echo 1. WARP IPv4 Endpoint IP ï¿½ï¿½Ñ¡
+echo 2. WARP IPv6 Endpoint IP ï¿½ï¿½Ñ¡
 echo -------------
-echo 0. ÍË³ö
+echo 0. ï¿½Ë³ï¿½
 echo.
-choice /c 120 /M "ÇëÊäÈëÑ¡Ïî:"
+choice /c 120 /M "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½:"
 if "%errorlevel%"=="3" exit
 if "%errorlevel%"=="2" set ver=v6
 if "%errorlevel%"=="1" set ver=v4
-title WARP IP%ver% Endpoint IP ÓÅÑ¡
+title WARP IP%ver% Endpoint IP ï¿½ï¿½Ñ¡
 set filename=ips-%ver%.txt
 goto get%ver%
 
@@ -114,6 +114,6 @@ set %%i=
 
 warp
 del ip.txt > nul 2>&1
-echo Çë°´ÈÎÒâ¼ü¹Ø±Õ´°¿Ú
+echo ï¿½ë°´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±Õ´ï¿½ï¿½ï¿½
 pause > nul
 exit

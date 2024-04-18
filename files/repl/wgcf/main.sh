@@ -57,7 +57,7 @@ elif [[ $account_type == 3 ]]; then
   read -p "请输入选项 [1-2]: " team_type
 
   if [[ $team_type == 2 ]]; then
-    yellow "获取 WARP Teams 账户 xml 配置文件方法：https://blog.misaka.rest/2023/02/11/wgcfteam-config/"
+    yellow "获取 WARP Teams 账户 xml 配置文件方法：https://blog.misaka.cyou/2023/02/11/wgcfteam-config/"
     yellow "请将提取到的 xml 配置文件上传至：https://gist.github.com"
     read -rp "请粘贴 WARP Teams 账户配置文件链接：" teamconfigurl
     if [[ -n $teamconfigurl ]]; then
@@ -109,4 +109,4 @@ echo ""
 yellow "下面是配置文件分享二维码："
 qrencode -t ansiutf8 < wgcf-profile.conf
 echo ""
-yellow "请在本地使用此方法：https://blog.misaka.rest/2023/03/12/cf-warp-yxip/ 优选可用的 Endpoint IP"
+yellow "请在本地使用此方法：https://blog.misaka.cyou/2023/03/12/cf-warp-yxip/ 优选可用的 Endpoint IP"

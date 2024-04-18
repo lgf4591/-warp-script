@@ -53,7 +53,7 @@ endpointyx(){
     echo ""
     yellow "优选 IP 使用方法如下："
     yellow "1. 将 WARP 的 WireGuard 节点的默认的 Endpoint IP：engage.cloudflareclient.com:2408 替换成本地网络最优的 Endpoint IP"
-    yellow "使用教程：https://blog.misaka.rest/2023/01/25/wireguard-warp"
+    yellow "使用教程：https://blog.misaka.cyou/2023/01/25/wireguard-warp"
 
     # 删除 WARP Endpoint IP 优选工具及其附属文件
     rm -f warp
@@ -64,7 +64,7 @@ menu(){
     echo "#############################################################"
     echo -e "#               ${RED}WARP Endpoint IP 一键优选脚本${PLAIN}               #"
     echo -e "# ${GREEN}作者${PLAIN}: MisakaNo の 小破站                                  #"
-    echo -e "# ${GREEN}博客${PLAIN}: https://blog.misaka.rest                            #"
+    echo -e "# ${GREEN}博客${PLAIN}: https://blog.misaka.cyou                            #"
     echo -e "# ${GREEN}GitHub 项目${PLAIN}: https://github.com/Misaka-blog               #"
     echo -e "# ${GREEN}GitLab 项目${PLAIN}: https://gitlab.com/Misaka-blog               #"
     echo -e "# ${GREEN}Telegram 频道${PLAIN}: https://t.me/misakanocchannel              #"

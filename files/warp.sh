@@ -1581,7 +1581,7 @@ wireguard_profile() {
         red "$(cat /root/warpgo-sing-box.json)"
         yellow "Reserved 值：$(grep -o '"reserved":\[[^]]*\]' /root/warpgo-sing-box.json)"
         echo ""
-        yellow "请在本地使用此方法：https://blog.misaka.rest/2023/03/12/cf-warp-yxip/ 优选可用的 Endpoint IP"
+        yellow "请在本地使用此方法：https://blog.misaka.cyou/2023/03/12/cf-warp-yxip/ 优选可用的 Endpoint IP"
     elif [[ $profile_mode == 2 ]]; then
         # 复制 WGCF 配置文件
         cp -f /etc/wireguard/wgcf-profile.conf /root/wgcf-proxy.conf
@@ -1594,7 +1594,7 @@ wireguard_profile() {
         yellow "节点配置二维码如下所示："
         qrencode -t ansiutf8 </root/wgcf-proxy.conf
         echo ""
-        yellow "请在本地使用此方法：https://blog.misaka.rest/2023/03/12/cf-warp-yxip/ 优选可用的 Endpoint IP"
+        yellow "请在本地使用此方法：https://blog.misaka.cyou/2023/03/12/cf-warp-yxip/ 优选可用的 Endpoint IP"
     else
         red "输入错误，请重新输入"
         wireguard_profile
@@ -1697,7 +1697,7 @@ wgcf_account() {
 
         if [[ $team_type == 2 ]]; then
             # 询问用户获取 WARP Teams 账户 xml 文件配置链接，并提示获取方式及上传方法
-            yellow "获取 WARP Teams 账户 xml 配置文件方法：https://blog.misaka.rest/2023/02/11/wgcfteam-config/"
+            yellow "获取 WARP Teams 账户 xml 配置文件方法：https://blog.misaka.cyou/2023/02/11/wgcfteam-config/"
             yellow "请将提取到的 xml 配置文件上传至：https://gist.github.com"
             read -rp "请粘贴 WARP Teams 账户配置文件链接：" teamconfigurl
             if [[ -n $teamconfigurl ]]; then
@@ -2028,7 +2028,7 @@ wireproxy_account() {
 
         if [[ $team_type == 2 ]]; then
             # 询问用户获取 WARP Teams 账户 xml 文件配置链接，并提示获取方式及上传方法
-            yellow "获取 WARP Teams 账户 xml 配置文件方法：https://blog.misaka.rest/2023/02/11/wgcfteam-config/"
+            yellow "获取 WARP Teams 账户 xml 配置文件方法：https://blog.misaka.cyou/2023/02/11/wgcfteam-config/"
             yellow "请将提取到的 xml 配置文件上传至：https://gist.github.com"
             read -rp "请粘贴 WARP Teams 账户配置文件链接：" teamconfigurl
             if [[ -n $teamconfigurl ]]; then
@@ -2319,7 +2319,7 @@ menu() {
     echo "#############################################################"
     echo -e "#                ${RED}CloudFlare WARP 一键管理脚本${PLAIN}               #"
     echo -e "# ${GREEN}作者${PLAIN}: MisakaNo の 小破站                                  #"
-    echo -e "# ${GREEN}博客${PLAIN}: https://blog.misaka.rest                            #"
+    echo -e "# ${GREEN}博客${PLAIN}: https://blog.misaka.cyou                            #"
     echo -e "# ${GREEN}GitHub 项目${PLAIN}: https://github.com/Misaka-blog               #"
     echo -e "# ${GREEN}GitLab 项目${PLAIN}: https://gitlab.com/Misaka-blog               #"
     echo -e "# ${GREEN}Telegram 频道${PLAIN}: https://t.me/misakanocchannel              #"

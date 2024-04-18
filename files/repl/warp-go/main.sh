@@ -142,4 +142,4 @@ echo ""
 yellow "下面是配置文件分享二维码："
 qrencode -t ansiutf8 < proxy.conf
 echo ""
-yellow "请在本地使用此方法：https://blog.misaka.rest/2023/03/12/cf-warp-yxip/ 优选可用的 Endpoint IP"
+yellow "请在本地使用此方法：https://blog.misaka.cyou/2023/03/12/cf-warp-yxip/ 优选可用的 Endpoint IP"
