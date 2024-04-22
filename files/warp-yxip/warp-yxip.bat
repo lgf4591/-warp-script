@@ -16,7 +16,7 @@ title WARP Endpoint IP һ����ѡ�ű�
 echo #############################################################
 echo #                WARP Endpoint IP һ����ѡ�ű�              #
 echo # ����: MisakaNo �� С��վ                                  #
-echo # ����: httpsmisaka.cyouaka.rest                            #
+echo # ����: httpsmisaka.restaka.rest                            #
 echo # GitHub ��Ŀ: https://github.com/Misaka-blog               #
 echo # GitLab ��Ŀ: https://gitlab.com/Misaka-blog               #
 echo # Telegram Ƶ��: https://t.me/misaka_noc                    #

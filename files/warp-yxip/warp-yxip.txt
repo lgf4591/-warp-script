@@ -16,7 +16,7 @@ title WARP Endpoint IP 一键优选脚本
 echo #############################################################
 echo #                WARP Endpoint IP 一键优选脚本              #
 echo # 作者: MisakaNo の 小破站                                  #
-echo # 博客: https://blog.misaka.cyou                            #
+echo # 博客: https://blog.misaka.rest                            #
 echo # GitHub 项目: https://github.com/Misaka-blog               #
 echo # GitLab 项目: https://gitlab.com/Misaka-blog               #
 echo # Telegram 频道: https://t.me/misaka_noc                    #
